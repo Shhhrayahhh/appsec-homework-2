@@ -1,12 +1,21 @@
-language: python
-python:
-  - "3.8"
-env:
-  -DJANGO=3.1.2
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-install:
- - pip install -q Django==$DJANGO
- - pip install django_cryptography
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
 
-script:
-  - python manage.py test
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run tests
+        env:
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
+        run: |
+          python manage.py test
