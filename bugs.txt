@@ -1,0 +1,13 @@
+XSS Attack: A reflected XSS vulnerability was identified in the gift.html and item-single.html files, specifically through the "director" parameter. An attacker can exploit this by sending a crafted GET request, such as http://127.0.0.1:8000/gift.html?director=<script>alert('this is a XSS attack!');</script>, which would execute the script in the context of the user's browser, potentially compromising sensitive information
+
+CSRF Attack: A CSRF attack can be executed by tricking another user into gifting a gift card to the attacker's account without their consent. This involves creating a malicious HTML file (xsrf.html) that contains JavaScript code to perform a POST request when loaded. The function xsrf_attack() runs automatically, executing the attack as soon as the file is opened by the currently logged in user.
+
+
+SQL Injection: An SQL injection vulnerability was demonstrated by creating a .gtfcrd file where the signature field was modified using a UNION SELECT statement to extract all user passwords from the database. This technique exploits insufficient input validation, allowing attackers to manipulate SQL queries directly
+
+Command Injection: A command injection vulnerability was found in use.html. By entering:
+ls -la;
+echo {"records": [{"signature": "[ insert crypto signature here ]"}]} > tmp_file;
+exit;
+
+into an input box, an attacker can execute arbitrary Linux commands on the server. If malicious commands like rm are used instead of ls -la, it could lead to significant data loss by deleting important files

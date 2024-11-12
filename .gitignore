@@ -1,0 +1,64 @@
+.env
+.idea
+db.sqlite3
+**/__pycache__
+LegacySite/migrations
+**/__pycache__
+**/migrations
+**/migrations__pycache__
+**/migrations__pycache__
+**/migrations__pycache__
+
+# Django
+*.log
+*.pot
+*.pyc
+local_settings.py
+media/
+staticfiles/
+
+# Python
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+ENV/
+env/
+.env/
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
